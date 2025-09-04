@@ -7,15 +7,15 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float verticalMoveSpeed = 3.0f; // Velocidad para el movimiento vertical
     
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
-    private Vector3 initialRotation;
+    private float _yaw = 0.0f;
+    private float _pitch = 0.0f;
+    private Vector3 _initialRotation;
     
     private void Start()
     {
-        initialRotation = transform.eulerAngles;
-        yaw = initialRotation.y;
-        pitch = initialRotation.x;
+        _initialRotation = transform.eulerAngles;
+        _yaw = _initialRotation.y;
+        _pitch = _initialRotation.x;
         
         // Limitar el cursor al centro de la pantalla cuando se rota
         Cursor.lockState = CursorLockMode.None;
@@ -31,14 +31,14 @@ public class CameraController : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
             
             // Actualizar ángulos de rotación
-            yaw += mouseX;
-            pitch -= mouseY; // Invertido para que la rotación se sienta natural
+            _yaw += mouseX;
+            _pitch -= mouseY; // Invertido para que la rotación se sienta natural
             
             // Limitar el ángulo de pitch para evitar giros excesivos
-            pitch = Mathf.Clamp(pitch, -89f, 89f);
+            _pitch = Mathf.Clamp(_pitch, -89f, 89f);
             
             // Aplicar rotación a la cámara
-            transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+            transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
         }
         
         // Movimiento de la cámara con WASD o flechas
