@@ -156,8 +156,8 @@ MonoBehaviour:
   - InitialScene
   - JuanGuaragnini1
   - JuanGuaragnini2
-  nextSceneKey: 275
-  previousSceneKey: 276
+  nextSceneKey: 103
+  previousSceneKey: 102
 --- !u!4 &110730966
 Transform:
   m_ObjectHideFlags: 0
@@ -625,6 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 3
   moveSpeed: 5
+  verticalMoveSpeed: 3
 --- !u!1 &1100061743
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,15 +817,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press AWSD to move the camera
+  m_text: 'Camera Movement --> WASD or ArrowKeys
 
-    To rotate the camera press right-click
-    and move the mouse
+    Camera Rotate --> Right Click
+    + Mouse Movement
 
-    Next Scene --> Right Arrow
+    Camera Up --> E
 
-    Previous Scene --> Left
-    Arrow'
+    Camera Down --> Q
+
+    Next Scene
+    --> G
+
+    Previous Scene -->F'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

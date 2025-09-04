@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 3.0f;
     [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float verticalMoveSpeed = 3.0f; // Velocidad para el movimiento vertical
     
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -56,7 +57,17 @@ public class CameraController : MonoBehaviour
         // Calcular dirección de movimiento
         Vector3 moveDirection = (forward * verticalInput + right * horizontalInput).normalized;
         
-        // Aplicar movimiento
+        // Aplicar movimiento horizontal
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        
+        // Movimiento vertical con teclas E (arriba) y Q (abajo)
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.position += Vector3.up * verticalMoveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.position += Vector3.down * verticalMoveSpeed * Time.deltaTime;
+        }
     }
 }
