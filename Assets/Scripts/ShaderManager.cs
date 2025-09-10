@@ -1,0 +1,98 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UI;
+
+public class ShaderManager : MonoBehaviour
+{
+    [SerializeField] private Material Fresnel;
+    [SerializeField] private Material Toon;
+    [SerializeField] private bool isFresnel;
+
+
+    [Header("Fresnel Settings")]
+    [SerializeField] private Slider powerSlider;
+    [SerializeField] private Slider biasSlider;
+    [SerializeField] private Slider frecuencySlider;
+
+
+    [Header("Toon Settings")]
+    [SerializeField] private Slider toonForce;
+    [SerializeField] private Slider tooncolorRed;
+    [SerializeField] private Slider tooncolorGreen;
+    [SerializeField] private Slider tooncolorBlue;
+    [SerializeField] private Slider lightrangeSlider;
+    [SerializeField] private Slider lightintensitySlider;
+
+
+    [SerializeField] private Light mainLight;
+    [SerializeField] private Light pointlight;
+    [SerializeField] private TMPro.TextMeshProUGUI lightstate;
+
+
+
+    private void Start()
+    {
+        if (isFresnel)
+        {
+            setFresnelValues();
+        }
+        else
+        {
+            setToonValues();
+        }
+        if (mainLight.intensity != 0) 
+        {
+            lightstate.text = "Directional Light Active";
+        }
+        else
+        {
+            lightstate.text = "Point Light Active";
+        }
+
+    }
+
+    private void setFresnelValues()
+    {
+        powerSlider.value = Fresnel.GetFloat("_Power");
+        biasSlider.value = Fresnel.GetFloat("_Bias");
+        frecuencySlider.value = Fresnel.GetFloat("_Frecuency");
+    }
+
+    private void setToonValues()
+    {
+        toonForce.value = Toon.GetFloat("_Force");
+        tooncolorGreen.value = Toon.GetColor("_MainColor").g;
+        tooncolorRed.value = Toon.GetColor("_MainColor").r;
+        tooncolorBlue.value = Toon.GetColor("_MainColor").b;
+        lightrangeSlider.value = pointlight.range;
+        lightintensitySlider.value = pointlight.intensity;
+    }
+
+    public void modifyred() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
+    public void modifygreen() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
+    public void modifyblue() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
+    public void modifyforce() { Toon.SetFloat("_Force", toonForce.value); }
+    public void modifypower() { Fresnel.SetFloat("_Power", powerSlider.value); }
+    public void modifybias() { Fresnel.SetFloat("_Bias", biasSlider.value); }
+    public void modifyfrecuency() { Fresnel.SetFloat("_Frecuency", frecuencySlider.value); }
+    public void modifylightrange() { pointlight.range = lightrangeSlider.value; }
+    public void modifylightIntensity() { pointlight.intensity = lightintensitySlider.value; }
+
+    public void activelight()
+    {
+        if(mainLight.intensity != 0) 
+        { 
+            mainLight.intensity = 0; pointlight.intensity = 1; 
+            lightstate.text = "Point Light Active";
+        }
+        else 
+        { 
+            mainLight.intensity = 1; pointlight.intensity = 0; 
+            lightstate.text = "Directional Light Active";
+        }
+    }
+
+
+}
