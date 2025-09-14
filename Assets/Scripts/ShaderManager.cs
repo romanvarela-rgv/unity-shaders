@@ -24,11 +24,14 @@ public class ShaderManager : MonoBehaviour
     [SerializeField] private Slider tooncolorBlue;
     [SerializeField] private Slider lightrangeSlider;
     [SerializeField] private Slider lightintensitySlider;
+    [SerializeField] private Slider lightRotator;
 
 
     [SerializeField] private Light mainLight;
     [SerializeField] private Light pointlight;
     [SerializeField] private TMPro.TextMeshProUGUI lightstate;
+    [SerializeField] private Transform lightRotation;
+    private Quaternion initialRotation;
 
 
 
@@ -42,22 +45,23 @@ public class ShaderManager : MonoBehaviour
         {
             setToonValues();
         }
-        if (mainLight.intensity != 0) 
+        if (mainLight.intensity != 0 && mainLight != null) 
         {
-            lightstate.text = "Directional Light Active";
+            if (lightstate != null) { lightstate.text = "Directional Light Active"; }
         }
         else
         {
-            lightstate.text = "Point Light Active";
+            if(lightstate != null) { lightstate.text = "Point Light Active"; }
+            
         }
-
+        initialRotation = lightRotation.rotation;
     }
 
     private void setFresnelValues()
     {
         powerSlider.value = Fresnel.GetFloat("_Power");
         biasSlider.value = Fresnel.GetFloat("_Bias");
-        frecuencySlider.value = Fresnel.GetFloat("_Frecuency");
+        frecuencySlider.value = Fresnel.GetFloat("_Frecuencia");
     }
 
     private void setToonValues()
@@ -76,7 +80,7 @@ public class ShaderManager : MonoBehaviour
     public void modifyforce() { Toon.SetFloat("_Force", toonForce.value); }
     public void modifypower() { Fresnel.SetFloat("_Power", powerSlider.value); }
     public void modifybias() { Fresnel.SetFloat("_Bias", biasSlider.value); }
-    public void modifyfrecuency() { Fresnel.SetFloat("_Frecuency", frecuencySlider.value); }
+    public void modifyfrecuency() { Fresnel.SetFloat("_Frecuencia", frecuencySlider.value); }
     public void modifylightrange() { pointlight.range = lightrangeSlider.value; }
     public void modifylightIntensity() { pointlight.intensity = lightintensitySlider.value; }
 
@@ -94,5 +98,12 @@ public class ShaderManager : MonoBehaviour
         }
     }
 
+    public void rotateLight()
+    {
+        // Mapear el valor del slider (0-1) a un ángulo entre 0 y 180 grados
+        float rotationAngle = lightRotator.value * 180f;
 
+        // Aplicar la rotación a partir de la rotación inicial
+        lightRotation.rotation = initialRotation * Quaternion.AngleAxis(rotationAngle, Vector3.up);
+    }
 }
