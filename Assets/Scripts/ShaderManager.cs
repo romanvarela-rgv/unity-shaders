@@ -15,13 +15,11 @@ public class ShaderManager : MonoBehaviour
     [SerializeField] private Slider powerSlider;
     [SerializeField] private Slider biasSlider;
     [SerializeField] private Slider frecuencySlider;
+    [SerializeField] private Slider ScaleSlider;
 
 
     [Header("Toon Settings")]
     [SerializeField] private Slider toonForce;
-    [SerializeField] private Slider tooncolorRed;
-    [SerializeField] private Slider tooncolorGreen;
-    [SerializeField] private Slider tooncolorBlue;
     [SerializeField] private Slider lightrangeSlider;
     [SerializeField] private Slider lightintensitySlider;
     [SerializeField] private Slider lightRotator;
@@ -62,21 +60,17 @@ public class ShaderManager : MonoBehaviour
         powerSlider.value = Fresnel.GetFloat("_Power");
         biasSlider.value = Fresnel.GetFloat("_Bias");
         frecuencySlider.value = Fresnel.GetFloat("_Frecuencia");
+        ScaleSlider.value = Fresnel.GetFloat("_Scale");
     }
 
     private void setToonValues()
     {
         toonForce.value = Toon.GetFloat("_Force");
-        tooncolorGreen.value = Toon.GetColor("_MainColor").g;
-        tooncolorRed.value = Toon.GetColor("_MainColor").r;
-        tooncolorBlue.value = Toon.GetColor("_MainColor").b;
         lightrangeSlider.value = pointlight.range;
         lightintensitySlider.value = pointlight.intensity;
     }
 
-    public void modifyred() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
-    public void modifygreen() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
-    public void modifyblue() { Toon.SetColor("_MainColor", new Color(tooncolorRed.value, tooncolorGreen.value, tooncolorBlue.value)); }
+    public void modifyScale() { Fresnel.SetFloat("_Scale", ScaleSlider.value); }
     public void modifyforce() { Toon.SetFloat("_Force", toonForce.value); }
     public void modifypower() { Fresnel.SetFloat("_Power", powerSlider.value); }
     public void modifybias() { Fresnel.SetFloat("_Bias", biasSlider.value); }
