@@ -45,9 +45,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Float: 100
     - _Float0: 100
     - _Speed: 0
     - __dirty: 0
+    - _noise: 100
     m_Colors:
+    - _Vector: {r: 2, g: 2, b: 0, a: 0}
     - _Vector0: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []

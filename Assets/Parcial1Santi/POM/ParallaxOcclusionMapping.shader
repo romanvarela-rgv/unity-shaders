@@ -209,12 +209,12 @@ Shader "ParallaxOcclusionMapping"
 }
 /*ASEBEGIN
 Version=18900
-267;73;1207;601;2028.358;431.6541;1.9;True;False
+267;73;1207;601;2165.156;414.5542;1.9;True;False
 Node;AmplifyShaderEditor.TextureCoordinatesNode;2;-1221.833,-104.3311;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ViewDirInputsCoordNode;7;-1202.584,271.4869;Inherit;False;World;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
-Node;AmplifyShaderEditor.RangedFloatNode;10;-1098.583,471.4872;Inherit;False;Property;_RefPlane;RefPlane;2;0;Create;True;0;0;0;False;0;False;5;5;0;10;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;9;-1221.782,162.6872;Inherit;False;Property;_Scale;Scale;3;0;Create;True;0;0;0;False;0;False;0.4;0.4;0;0.4;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TexturePropertyNode;6;-1503.991,49.5029;Inherit;True;Property;_MainTexture;MainTexture;0;0;Create;True;0;0;0;False;0;False;9789d23040cb1fb45ad60392430c3c15;9789d23040cb1fb45ad60392430c3c15;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.RangedFloatNode;9;-1221.782,162.6872;Inherit;False;Property;_Scale;Scale;3;0;Create;True;0;0;0;False;0;False;0.4;0.4;0;0.4;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;10;-1098.583,471.4872;Inherit;False;Property;_RefPlane;RefPlane;2;0;Create;True;0;0;0;False;0;False;5;5;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ParallaxOcclusionMappingNode;1;-813.7003,79.7;Inherit;False;0;8;False;-1;16;False;-1;2;0.02;0;False;1,1;False;0,0;8;0;FLOAT2;0,0;False;1;SAMPLER2D;;False;7;SAMPLERSTATE;;False;2;FLOAT;0.02;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;5;FLOAT2;0,0;False;6;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.ColorNode;32;-400.9289,-241.0803;Inherit;False;Constant;_Color0;Color 0;2;0;Create;True;0;0;0;False;0;False;0.8113208,0.8096688,0.4247953,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;11;-442.5841,20.28709;Inherit;True;Property;_TextureSample0;Texture Sample 0;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -234,4 +234,4 @@ WireConnection;31;1;1;0
 WireConnection;0;0;8;0
 WireConnection;0;1;31;0
 ASEEND*/
-//CHKSM=F1C094A83E3F70F1DD33D759595F95F00B9224CA
+//CHKSM=42B9D81E513F24E92E6BBE3032FDA8763CDB80AB
