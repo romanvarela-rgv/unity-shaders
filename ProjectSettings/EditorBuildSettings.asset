@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JulianFirpo1.unity
     guid: a9da2ccb759829446b4557bd33273750
+  - enabled: 1
+    path: Assets/Scenes/POM_Santi.unity
+    guid: 2a891dc76a0d5324e89fea30f21ab5d8
+  - enabled: 1
+    path: Assets/Scenes/SPUV_Santi.unity
+    guid: e85a4c2c14669b04ebe39e7c9afa7709
   m_configObjects: {}
