@@ -116,7 +116,7 @@ Shader "ParallaxOcclusionMapping"
 			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
 			float2 OffsetPOM1 = POM( _MainTexture, i.uv_texcoord, ddx(i.uv_texcoord), ddy(i.uv_texcoord), ase_worldNormal, ase_worldViewDir, ase_worldViewDir, 8, 8, _Scale, _RefPlane, _MainTexture_ST.xy, float2(0,0), 0 );
 			o.Normal = UnpackNormal( tex2D( Normal, OffsetPOM1 ) );
-			float4 color32 = IsGammaSpace() ? float4(0.8113208,0.8096688,0.4247953,0) : float4(0.6231937,0.6203455,0.1509136,0);
+			float4 color32 = IsGammaSpace() ? float4(0.8113208,0.8096688,0.4247953,0) : float4(0.6231937,0.6203454,0.1509136,0);
 			o.Albedo = ( color32 * tex2D( _MainTexture, OffsetPOM1 ) ).rgb;
 			o.Alpha = 1;
 		}
@@ -209,17 +209,17 @@ Shader "ParallaxOcclusionMapping"
 }
 /*ASEBEGIN
 Version=18900
-267;73;1207;601;1974.993;137.3389;1.6;True;False
+267;73;1207;601;2028.358;431.6541;1.9;True;False
 Node;AmplifyShaderEditor.TextureCoordinatesNode;2;-1221.833,-104.3311;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ViewDirInputsCoordNode;7;-1202.584,271.4869;Inherit;False;World;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.RangedFloatNode;10;-1098.583,471.4872;Inherit;False;Property;_RefPlane;RefPlane;2;0;Create;True;0;0;0;False;0;False;5;5;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;9;-1221.782,162.6872;Inherit;False;Property;_Scale;Scale;3;0;Create;True;0;0;0;False;0;False;0.4;0.4;0;0.4;0;1;FLOAT;0
-Node;AmplifyShaderEditor.TexturePropertyNode;6;-1503.991,49.5029;Inherit;True;Property;_MainTexture;MainTexture;0;0;Create;True;0;0;0;False;0;False;9789d23040cb1fb45ad60392430c3c15;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
-Node;AmplifyShaderEditor.ParallaxOcclusionMappingNode;1;-866.5,76.5;Inherit;False;0;8;False;-1;16;False;-1;2;0.02;0;False;1,1;False;0,0;8;0;FLOAT2;0,0;False;1;SAMPLER2D;;False;7;SAMPLERSTATE;;False;2;FLOAT;0.02;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;5;FLOAT2;0,0;False;6;FLOAT;0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.TexturePropertyNode;6;-1503.991,49.5029;Inherit;True;Property;_MainTexture;MainTexture;0;0;Create;True;0;0;0;False;0;False;9789d23040cb1fb45ad60392430c3c15;9789d23040cb1fb45ad60392430c3c15;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.ParallaxOcclusionMappingNode;1;-813.7003,79.7;Inherit;False;0;8;False;-1;16;False;-1;2;0.02;0;False;1,1;False;0,0;8;0;FLOAT2;0,0;False;1;SAMPLER2D;;False;7;SAMPLERSTATE;;False;2;FLOAT;0.02;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;5;FLOAT2;0,0;False;6;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.ColorNode;32;-400.9289,-241.0803;Inherit;False;Constant;_Color0;Color 0;2;0;Create;True;0;0;0;False;0;False;0.8113208,0.8096688,0.4247953,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;11;-442.5841,20.28709;Inherit;True;Property;_TextureSample0;Texture Sample 0;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;8;21.42827,-27.0397;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;31;-442.2485,241.2027;Inherit;True;Property;Normal;Normal;1;0;Create;False;0;0;0;False;0;False;-1;f53512d44b91e954dae7bf028209df1a;None;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;31;-442.2485,241.2027;Inherit;True;Property;Normal;Normal;1;0;Create;False;0;0;0;False;0;False;-1;f53512d44b91e954dae7bf028209df1a;f53512d44b91e954dae7bf028209df1a;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;246.4,20.8;Float;False;True;-1;2;ASEMaterialInspector;0;0;Standard;ParallaxOcclusionMapping;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Opaque;0.5;True;True;0;False;Opaque;;Geometry;All;14;all;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;1;0;2;0
 WireConnection;1;1;6;0
@@ -234,4 +234,4 @@ WireConnection;31;1;1;0
 WireConnection;0;0;8;0
 WireConnection;0;1;31;0
 ASEEND*/
-//CHKSM=406F607E374151A624951C80A7AA2B9506846629
+//CHKSM=F1C094A83E3F70F1DD33D759595F95F00B9224CA
